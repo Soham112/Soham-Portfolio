@@ -16,6 +16,26 @@ const NAV_ITEMS = [
   { label: "Contact", id: "contact" },
 ];
 
+function GithubIcon(props: React.SVGProps<SVGSVGElement> & { size?: number | string }) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width={props.size || "24"}
+      height={props.size || "24"}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+      <path d="M9 18c-4.51 2-5-2-7-2" />
+    </svg>
+  );
+}
+
 export function Navigation() {
   const [activeId, setActiveId] = useState("");
   const [scrolled, setScrolled] = useState(false);
@@ -99,14 +119,25 @@ export function Navigation() {
           
           <div className="w-px h-4 bg-warm-sand"></div>
           
-          <a
-            href="/Soham%20Patil%202026.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="px-4 py-1.5 text-sm font-semibold text-sage border border-sage rounded-full hover:bg-sage hover:text-white transition-colors"
-          >
-            Resume
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="/Soham%20Patil%202026.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="px-4 py-1.5 text-sm font-semibold text-sage border border-sage rounded-full hover:bg-sage hover:text-white transition-colors"
+            >
+              Resume
+            </a>
+            <a
+              href="https://github.com/Soham112"
+              target="_blank"
+              rel="noreferrer"
+              className="p-1.5 text-sage border border-sage rounded-full hover:bg-sage hover:text-white transition-colors flex items-center justify-center cursor-pointer"
+              aria-label="GitHub"
+            >
+              <GithubIcon size={18} />
+            </a>
+          </div>
         </div>
 
         {/* Mobile Hamburger */}
@@ -162,15 +193,27 @@ export function Navigation() {
                     {item.label}
                   </button>
                 ))}
-                <a
-                  href="/Soham%20Patil%202026.pdf"
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => setMenuOpen(false)}
-                  className="block w-full text-left px-5 py-3 text-sm font-semibold text-sage hover:bg-sage/10 transition-colors"
-                >
-                  Resume
-                </a>
+                <div className="border-t border-warm-sand/30 flex items-center">
+                  <a
+                    href="/Soham%20Patil%202026.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setMenuOpen(false)}
+                    className="flex-grow text-left px-5 py-3 text-sm font-semibold text-sage hover:bg-sage/10 transition-colors border-r border-warm-sand/30"
+                  >
+                    Resume
+                  </a>
+                  <a
+                    href="https://github.com/Soham112"
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setMenuOpen(false)}
+                    className="px-4 py-3 text-sage hover:bg-sage/10 transition-colors flex items-center justify-center"
+                    aria-label="GitHub"
+                  >
+                    <GithubIcon size={18} />
+                  </a>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>

@@ -103,9 +103,14 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href="/Soham%20Patil%202026.pdf" target="_blank" rel="noreferrer" className="px-8 py-3 bg-charcoal text-white rounded-full font-medium hover:bg-sage transition-colors duration-300 shadow-warm flex items-center gap-2">
-            View Resume <ExternalLink size={18} />
-          </a>
+          <div className="flex items-center gap-2">
+            <a href="/Soham%20Patil%202026.pdf" target="_blank" rel="noreferrer" className="px-8 py-3 bg-charcoal text-white rounded-full font-medium hover:bg-sage transition-colors duration-300 shadow-warm flex items-center gap-2">
+              View Resume <ExternalLink size={18} />
+            </a>
+            <a href="https://github.com/Soham112" target="_blank" rel="noreferrer" className="p-3 bg-white text-charcoal border border-warm-sand rounded-full hover:bg-sage hover:text-white hover:border-sage transition-colors duration-300 shadow-sm flex items-center justify-center">
+              <GithubIcon size={20} />
+            </a>
+          </div>
           <a href="#experience" className="px-8 py-3 bg-white text-charcoal rounded-full font-medium border border-warm-sand hover:bg-warm-cream transition-colors duration-300 shadow-sm">
             Experience
           </a>
