@@ -62,7 +62,7 @@ export default function Home() {
       {/* HERO SECTION */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-28 max-w-5xl mx-auto px-6 md:px-12 flex flex-col items-center text-center">
         <div className="relative mb-8 group">
-          <div className="absolute inset-0 rounded-full shadow-[0_0_0_4px_rgba(180,160,140,0.15)] group-hover:shadow-[0_0_0_6px_rgba(180,160,140,0.25)] transition-shadow duration-500"></div>
+          <div className="absolute inset-0 rounded-full shadow-[0_0_0_4px_rgba(180,160,140,0.15)] group-hover:shadow-[0_0_0_6px_rgba(180,160,140,0.25)] transition-shadow duration-300"></div>
           <Image 
             src="/profile.png" 
             alt="Soham Patil Profile" 
@@ -115,52 +115,20 @@ export default function Home() {
       {/* DIVIDER */}
       <div className="max-w-4xl mx-auto border-t border-warm-sand/50"></div>
 
-      {/* SUMMARY */}
-      <SectionWrapper id="summary">
-        <h2 className="font-serif text-3xl text-charcoal font-bold mb-8 text-center md:text-left">Summary</h2>
-        <p className="text-lg leading-relaxed text-charcoal-light mb-12">
-          Data Scientist with 3+ years of experience building and deploying production ML pipelines and GenAI systems. 
-          Improved data attribute fill rates from 60% to 100% across 10M+ records, enabling 4x revenue growth. Delivered 
-          propensity models and scoring pipelines at enterprise scale for 100+ clients. Currently specializing in production-grade 
-          RAG pipelines, agentic AI systems, and LLM applications using Python, Databricks, Spark, and AWS.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card delay={0.1}>
-            <BrainCircuit className="text-sage w-8 h-8 mb-4 border border-sage/20 rounded-lg p-1 bg-sage/5" />
-            <h3 className="font-bold text-lg mb-2">Machine Learning</h3>
-            <p className="text-sm text-charcoal-light">Classification, propensity modeling, anomaly detection, feature engineering at scale.</p>
-          </Card>
-          <Card delay={0.2}>
-            <Database className="text-sage w-8 h-8 mb-4 border border-sage/20 rounded-lg p-1 bg-sage/5" />
-            <h3 className="font-bold text-lg mb-2">MLOps & Data Eng</h3>
-            <p className="text-sm text-charcoal-light">Databricks, MLflow, AWS, event-driven pipelines, production deployment.</p>
-          </Card>
-          <Card delay={0.3}>
-            <Sparkles className="text-sage w-8 h-8 mb-4 border border-sage/20 rounded-lg p-1 bg-sage/5" />
-            <h3 className="font-bold text-lg mb-2">Generative AI</h3>
-            <p className="text-sm text-charcoal-light">RAG, LangGraph, LangChain, agentic AI systems, LLM applications.</p>
-          </Card>
-        </div>
-      </SectionWrapper>
-
-      {/* DIVIDER */}
-      <div className="max-w-4xl mx-auto border-t border-warm-sand/50"></div>
-
       {/* CURRENTLY WORKING ON */}
       <SectionWrapper id="working-on">
         <Card className="w-full !bg-warm-cream border-l-4 border-sage !rounded-xl relative overflow-hidden">
           <div className="flex justify-between items-start mb-4">
             <h2 className="font-serif text-2xl text-charcoal font-bold">What I&apos;m Working On</h2>
             <div className="flex items-center gap-2 text-sage text-sm font-semibold bg-sage/10 px-3 py-1 rounded-full">
-              <span className="w-2 h-2 rounded-full bg-sage animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-sage"></span>
               Live
             </div>
           </div>
           
           <div className="text-charcoal-light text-lg space-y-4 mb-6 leading-relaxed">
             <p>
-              Finishing my Master&apos;s in Information Technology & Management at UT Dallas (May 2026).
+              Finishing my Master&apos;s in Information Technology &amp; Management at UT Dallas (May 2026).
             </p>
             <p>Currently building two projects:</p>
             <ul className="space-y-3 ms-2">
@@ -187,13 +155,45 @@ export default function Home() {
               Available May 2026
             </span>
             <span className="px-4 py-1.5 bg-warm-sand text-charcoal text-sm font-medium rounded-full border border-warm-sand shadow-sm">
-              Open to Hybrid & Remote
+              Open to Hybrid &amp; Remote
             </span>
             <span className="px-4 py-1.5 bg-[#C4845A] text-white text-sm font-medium rounded-full shadow-sm">
               Actively Building
             </span>
           </div>
         </Card>
+      </SectionWrapper>
+
+      {/* DIVIDER */}
+      <div className="max-w-4xl mx-auto border-t border-warm-sand/50"></div>
+
+      {/* SUMMARY */}
+      <SectionWrapper id="summary">
+        <h2 className="font-serif text-3xl text-charcoal font-bold mb-8 text-center md:text-left">Summary</h2>
+        <p className="text-lg leading-relaxed text-charcoal-light mb-12">
+          Data Scientist with 3+ years of experience building and deploying production ML pipelines and GenAI systems. 
+          Improved data attribute fill rates from 60% to 100% across 10M+ records, enabling 4x revenue growth. Delivered 
+          propensity models and scoring pipelines at enterprise scale for 100+ clients. Currently specializing in production-grade 
+          RAG pipelines, agentic AI systems, and LLM applications using Python, Databricks, Spark, and AWS.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card delay={0.1}>
+            <BrainCircuit className="text-sage w-8 h-8 mb-4 border border-sage/20 rounded-lg p-1 bg-sage/5" />
+            <h3 className="font-bold text-lg mb-2">Machine Learning</h3>
+            <p className="text-sm text-charcoal-light">Classification, propensity modeling, anomaly detection, feature engineering at scale.</p>
+          </Card>
+          <Card delay={0.2}>
+            <Database className="text-sage w-8 h-8 mb-4 border border-sage/20 rounded-lg p-1 bg-sage/5" />
+            <h3 className="font-bold text-lg mb-2">MLOps &amp; Data Eng</h3>
+            <p className="text-sm text-charcoal-light">Databricks, MLflow, AWS, event-driven pipelines, production deployment.</p>
+          </Card>
+          <Card delay={0.3}>
+            <Sparkles className="text-sage w-8 h-8 mb-4 border border-sage/20 rounded-lg p-1 bg-sage/5" />
+            <h3 className="font-bold text-lg mb-2">Generative AI</h3>
+            <p className="text-sm text-charcoal-light">RAG, LangGraph, LangChain, agentic AI systems, LLM applications.</p>
+          </Card>
+        </div>
       </SectionWrapper>
 
       {/* DIVIDER */}
@@ -245,60 +245,6 @@ export default function Home() {
               <li>Deployed models via Databricks Asset Bundles, AWS (S3, Lambda, batch inference), and MLflow model registry with scheduled retraining, anomaly detection, and drift monitoring — maintaining 95%+ uptime.</li>
               <li>Mentored a team of 5 in ML and Databricks workflows, transitioning model development fully in-house and eliminating $30K+ in annual external vendor costs.</li>
             </ul>
-          </Card>
-        </div>
-      </SectionWrapper>
-
-      {/* DIVIDER */}
-      <div className="max-w-4xl mx-auto border-t border-warm-sand/50"></div>
-
-      {/* WHAT PEOPLE SAY */}
-      <SectionWrapper id="testimonials">
-        <h2 className="font-serif text-3xl text-charcoal font-bold mb-12">What People Say</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card className="!bg-warm-cream relative flex flex-col h-full border border-warm-sand/30">
-            <div className="absolute top-2 left-4 text-warm-sand text-7xl font-serif opacity-40 select-none">&ldquo;</div>
-            <div className="relative z-10 flex-grow">
-              <p className="italic text-[17px] leading-relaxed text-charcoal-light mb-8 pt-4">
-                &ldquo;Soham can comfortably adapt to different AI/ML solutions and is fully responsible for owning the end-to-end development. He developed many custom models to support our clients and owned delivery of foundational models regarding our data quality. As a mentor, he would onboard new team members and help them through their initial learning curve and continue to provide invaluable guidance thereafter. Soham would be a welcome addition to any team and would successfully contribute quickly to that organization&apos;s success.&rdquo;
-              </p>
-            </div>
-            
-            <div className="relative z-10 mt-auto border-t border-warm-sand/50 pt-4">
-              <div className="flex items-center gap-2 mb-1">
-                <p className="font-bold text-charcoal font-serif text-lg">Michael Krueger</p>
-                <span className="w-1.5 h-1.5 bg-blue-500 rounded-full inline-block" title="Verified on LinkedIn"></span>
-              </div>
-              <p className="text-sm text-charcoal-light/80 mb-2">Data Science Leader, Data Axle</p>
-              <p className="text-xs text-charcoal-light italic mb-4">Michael managed Soham directly &middot; Feb 2026</p>
-              
-              <div className="flex justify-between items-center">
-                <p className="text-xs text-sage font-bold uppercase tracking-widest">Via LinkedIn</p>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="!bg-warm-cream relative flex flex-col h-full border border-warm-sand/30">
-            <div className="absolute top-2 left-4 text-warm-sand text-7xl font-serif opacity-40 select-none">&ldquo;</div>
-            <div className="relative z-10 flex-grow">
-              <p className="italic text-[17px] leading-relaxed text-charcoal-light mb-8 pt-4">
-                &ldquo;Soham joined as a fresher and was reporting to me while working with Data Axle. With his sharp analytical skills and hunger to learn, he gathered complete knowledge of the process in 3 months. This enabled us to deliver our ML projects with high accuracy and also established great confidence within our stakeholders. Soham also took the initiative of grooming the freshers within the team and bringing them up to speed.&rdquo;
-              </p>
-            </div>
-            
-            <div className="relative z-10 mt-auto border-t border-warm-sand/50 pt-4">
-              <div className="flex items-center gap-2 mb-1">
-                <p className="font-bold text-charcoal font-serif text-lg">Aditya Narayan</p>
-                <span className="w-1.5 h-1.5 bg-blue-500 rounded-full inline-block" title="Verified on LinkedIn"></span>
-              </div>
-              <p className="text-sm text-charcoal-light/80 mb-2">Data Science Manager | ML Engineer &amp; Innovator, Data Axle</p>
-              <p className="text-xs text-charcoal-light italic mb-4">Aditya managed Soham directly &middot; May 2019</p>
-              
-              <div className="flex justify-between items-center">
-                <p className="text-xs text-sage font-bold uppercase tracking-widest">Via LinkedIn</p>
-              </div>
-            </div>
           </Card>
         </div>
       </SectionWrapper>
@@ -365,6 +311,93 @@ export default function Home() {
       {/* DIVIDER */}
       <div className="max-w-4xl mx-auto border-t border-warm-sand/50"></div>
 
+      {/* WHAT PEOPLE SAY */}
+      <SectionWrapper id="testimonials">
+        <h2 className="font-serif text-3xl text-charcoal font-bold mb-12">What People Say</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card className="!bg-warm-cream relative flex flex-col h-full border border-warm-sand/30">
+            <div className="absolute top-2 left-4 text-warm-sand text-7xl font-serif opacity-40 select-none">&ldquo;</div>
+            <div className="relative z-10 flex-grow">
+              <p className="italic text-[17px] leading-relaxed text-charcoal-light mb-8 pt-4">
+                &ldquo;Soham can comfortably adapt to different AI/ML solutions and is fully responsible for owning the end-to-end development. He developed many custom models to support our clients and owned delivery of foundational models regarding our data quality. As a mentor, he would onboard new team members and help them through their initial learning curve and continue to provide invaluable guidance thereafter. Soham would be a welcome addition to any team and would successfully contribute quickly to that organization&apos;s success.&rdquo;
+              </p>
+            </div>
+            
+            <div className="relative z-10 mt-auto border-t border-warm-sand/50 pt-4">
+              <div className="flex items-center gap-2 mb-1">
+                <p className="font-bold text-charcoal font-serif text-lg">Michael Krueger</p>
+                <span className="w-1.5 h-1.5 bg-blue-500 rounded-full inline-block" title="Verified on LinkedIn"></span>
+              </div>
+              <p className="text-sm text-charcoal-light/80 mb-2">Data Science Leader, Data Axle</p>
+              <p className="text-xs text-charcoal-light italic mb-4">Michael managed Soham directly &middot; Feb 2026</p>
+              <p className="text-xs text-sage font-bold uppercase tracking-widest">Via LinkedIn</p>
+            </div>
+          </Card>
+
+          <Card className="!bg-warm-cream relative flex flex-col h-full border border-warm-sand/30">
+            <div className="absolute top-2 left-4 text-warm-sand text-7xl font-serif opacity-40 select-none">&ldquo;</div>
+            <div className="relative z-10 flex-grow">
+              <p className="italic text-[17px] leading-relaxed text-charcoal-light mb-8 pt-4">
+                &ldquo;Soham joined as a fresher and was reporting to me while working with Data Axle. With his sharp analytical skills and hunger to learn, he gathered complete knowledge of the process in 3 months. This enabled us to deliver our ML projects with high accuracy and also established great confidence within our stakeholders. Soham also took the initiative of grooming the freshers within the team and bringing them up to speed.&rdquo;
+              </p>
+            </div>
+            
+            <div className="relative z-10 mt-auto border-t border-warm-sand/50 pt-4">
+              <div className="flex items-center gap-2 mb-1">
+                <p className="font-bold text-charcoal font-serif text-lg">Aditya Narayan</p>
+                <span className="w-1.5 h-1.5 bg-blue-500 rounded-full inline-block" title="Verified on LinkedIn"></span>
+              </div>
+              <p className="text-sm text-charcoal-light/80 mb-2">Data Science Manager | ML Engineer &amp; Innovator, Data Axle</p>
+              <p className="text-xs text-charcoal-light italic mb-4">Aditya managed Soham directly &middot; May 2019</p>
+              <p className="text-xs text-sage font-bold uppercase tracking-widest">Via LinkedIn</p>
+            </div>
+          </Card>
+        </div>
+      </SectionWrapper>
+
+      {/* DIVIDER */}
+      <div className="max-w-4xl mx-auto border-t border-warm-sand/50"></div>
+
+      {/* SKILLS */}
+      <SectionWrapper id="skills">
+        <h2 className="font-serif text-3xl text-charcoal font-bold mb-12">Skills</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            {
+              title: "Programming",
+              skills: ["Python (Pandas, NumPy, PySpark)", "SQL", "R"]
+            },
+            {
+              title: "ML & Deep Learning",
+              skills: ["LightGBM", "XGBoost", "Neural Networks", "LSTMs", "Isolation Forest", "SMOTE", "SHAP", "Anomaly Detection", "A/B Testing"]
+            },
+            {
+              title: "GenAI & NLP",
+              skills: ["LLMs", "RAG", "LangChain", "LangGraph", "Prompt Engineering", "Agentic AI Systems", "AWS Bedrock", "LLaMA", "ChromaDB", "Vector Search", "Embeddings"]
+            },
+            {
+              title: "MLOps, Cloud & Vis",
+              skills: ["MLflow", "Databricks", "Apache Spark", "Airflow", "Docker", "AWS (S3, Lambda, Batch Inference)", "CI/CD", "Tableau", "Plotly"]
+            }
+          ].map((cat, i) => (
+            <div key={i}>
+              <h3 className="font-bold text-lg mb-4 text-charcoal border-b border-warm-sand/50 pb-2">{cat.title}</h3>
+              <div className="flex flex-wrap gap-2">
+                {cat.skills.map((skill, j) => (
+                  <span key={j} className="px-3 py-1.5 bg-white border border-warm-sand rounded-lg text-sm font-medium text-charcoal-light shadow-sm">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </SectionWrapper>
+
+      {/* DIVIDER */}
+      <div className="max-w-4xl mx-auto border-t border-warm-sand/50"></div>
+
       {/* ACHIEVEMENTS */}
       <SectionWrapper id="achievements">
         <h2 className="font-serif text-3xl text-charcoal font-bold mb-4">Achievements / Beyond Work</h2>
@@ -423,7 +456,7 @@ export default function Home() {
                 <ClientImage 
                   src={ach.image} 
                   alt={ach.title} 
-                  className={`w-full h-full transition-transform duration-500 hover:scale-105 object-top ${ach.isPortrait ? "object-contain bg-warm-sand" : "object-cover"}`}
+                  className={`w-full h-full transition-transform duration-300 hover:scale-105 object-top ${ach.isPortrait ? "object-contain bg-warm-sand" : "object-cover"}`}
                 />
                 <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[rgba(245,240,232,0.3)] to-transparent pointer-events-none z-10" />
               </div>
@@ -479,45 +512,6 @@ export default function Home() {
       {/* DIVIDER */}
       <div className="max-w-4xl mx-auto border-t border-warm-sand/50"></div>
 
-      {/* SKILLS */}
-      <SectionWrapper id="skills">
-        <h2 className="font-serif text-3xl text-charcoal font-bold mb-12">Skills</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            {
-              title: "Programming",
-              skills: ["Python (Pandas, NumPy, PySpark)", "SQL", "R"]
-            },
-            {
-              title: "ML & Deep Learning",
-              skills: ["LightGBM", "XGBoost", "Neural Networks", "LSTMs", "Isolation Forest", "SMOTE", "SHAP", "Anomaly Detection", "A/B Testing"]
-            },
-            {
-              title: "GenAI & NLP",
-              skills: ["LLMs", "RAG", "LangChain", "LangGraph", "Prompt Engineering", "Agentic AI Systems", "AWS Bedrock", "LLaMA", "ChromaDB", "Vector Search", "Embeddings"]
-            },
-            {
-              title: "MLOps, Cloud & Vis",
-              skills: ["MLflow", "Databricks", "Apache Spark", "Airflow", "Docker", "AWS (S3, Lambda, Batch Inference)", "CI/CD", "Tableau", "Plotly"]
-            }
-          ].map((cat, i) => (
-            <div key={i}>
-              <h3 className="font-bold text-lg mb-4 text-charcoal border-b border-warm-sand/50 pb-2">{cat.title}</h3>
-              <div className="flex flex-wrap gap-2">
-                {cat.skills.map((skill, j) => (
-                  <span key={j} className="px-3 py-1.5 bg-white border border-warm-sand rounded-lg text-sm font-medium text-charcoal-light shadow-sm">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      {/* DIVIDER */}
-      <div className="max-w-4xl mx-auto border-t border-warm-sand/50"></div>
-
       {/* CERTIFICATIONS */}
       <SectionWrapper id="certifications">
         <h2 className="font-serif text-3xl text-charcoal font-bold mb-12">Certifications</h2>
@@ -544,7 +538,7 @@ export default function Home() {
         <h2 className="font-serif text-3xl text-charcoal font-bold mb-12">Education</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card>
-            <h3 className="font-serif text-xl font-bold mb-1 line-clamp-1">M.S. Information Technology & Mgmt</h3>
+            <h3 className="font-serif text-xl font-bold mb-1 line-clamp-1">M.S. Information Technology &amp; Mgmt</h3>
             <p className="text-sage font-medium mb-3">GPA 3.9/4.0</p>
             <p className="text-charcoal-light font-medium mb-1">UT Dallas | Dallas, TX</p>
             <p className="text-sm text-charcoal-light/70 mb-4">Aug 2024 – May 2026</p>

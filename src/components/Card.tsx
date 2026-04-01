@@ -15,8 +15,8 @@ export function Card({ children, className, delay = 0, bgWhite = true }: CardPro
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.3, delay, ease: "easeOut" }}
       className={cn(
         "rounded-2xl p-6 md:p-8 transition-all duration-300",
         bgWhite ? "bg-white" : "bg-warm-sand",

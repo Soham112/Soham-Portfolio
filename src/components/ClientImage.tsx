@@ -36,6 +36,7 @@ export function ClientImage({ src, alt, className }: { src: string, alt: string,
       src={src}
       alt={alt}
       fill
+      loading="lazy"
       className={className}
       onError={() => setError(true)}
     />
