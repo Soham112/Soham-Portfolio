@@ -103,11 +103,14 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href="#experience" className="px-8 py-3 bg-charcoal text-white rounded-full font-medium hover:bg-sage transition-colors duration-300 shadow-warm">
-            View Experience
+          <a href="/Soham%20Patil%202026.pdf" target="_blank" rel="noreferrer" className="px-8 py-3 bg-charcoal text-white rounded-full font-medium hover:bg-sage transition-colors duration-300 shadow-warm flex items-center gap-2">
+            View Resume <ExternalLink size={18} />
+          </a>
+          <a href="#experience" className="px-8 py-3 bg-white text-charcoal rounded-full font-medium border border-warm-sand hover:bg-warm-cream transition-colors duration-300 shadow-sm">
+            Experience
           </a>
           <a href="#contact" className="px-8 py-3 bg-white text-charcoal rounded-full font-medium border border-warm-sand hover:bg-warm-cream transition-colors duration-300 shadow-sm">
-            Contact Me
+            Contact
           </a>
         </div>
       </section>

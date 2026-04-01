@@ -74,27 +74,40 @@ export function Navigation() {
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
-          {NAV_ITEMS.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollTo(item.id)}
-              className={`relative text-sm font-medium transition-colors pb-1 ${
-                activeId === item.id
-                  ? "text-charcoal"
-                  : "text-charcoal-light hover:text-charcoal"
-              }`}
-            >
-              {item.label}
-              {activeId === item.id && (
-                <motion.div
-                  layoutId="nav-underline"
-                  className="absolute left-0 bottom-0 h-[2px] w-full bg-sage"
-                />
-              )}
-            </button>
-          ))}
-        </nav>
+        <div className="hidden lg:flex items-center gap-5 xl:gap-7">
+          <nav className="flex items-center gap-5 xl:gap-7">
+            {NAV_ITEMS.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className={`relative text-sm font-medium transition-colors pb-1 ${
+                  activeId === item.id
+                    ? "text-charcoal"
+                    : "text-charcoal-light hover:text-charcoal"
+                }`}
+              >
+                {item.label}
+                {activeId === item.id && (
+                  <motion.div
+                    layoutId="nav-underline"
+                    className="absolute left-0 bottom-0 h-[2px] w-full bg-sage"
+                  />
+                )}
+              </button>
+            ))}
+          </nav>
+          
+          <div className="w-px h-4 bg-warm-sand"></div>
+          
+          <a
+            href="/Soham%20Patil%202026.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="px-4 py-1.5 text-sm font-semibold text-sage border border-sage rounded-full hover:bg-sage hover:text-white transition-colors"
+          >
+            Resume
+          </a>
+        </div>
 
         {/* Mobile Hamburger */}
         <div className="lg:hidden" ref={menuRef}>
@@ -140,7 +153,7 @@ export function Navigation() {
                   <button
                     key={item.id}
                     onClick={() => scrollTo(item.id)}
-                    className={`w-full text-left px-5 py-3 text-sm font-medium border-b border-warm-sand/30 last:border-none transition-colors ${
+                    className={`w-full text-left px-5 py-3 text-sm font-medium border-b border-warm-sand/30 transition-colors ${
                       activeId === item.id
                         ? "text-sage bg-sage/5 font-semibold"
                         : "text-charcoal-light hover:text-charcoal hover:bg-warm-sand/20"
@@ -149,6 +162,15 @@ export function Navigation() {
                     {item.label}
                   </button>
                 ))}
+                <a
+                  href="/Soham%20Patil%202026.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setMenuOpen(false)}
+                  className="block w-full text-left px-5 py-3 text-sm font-semibold text-sage hover:bg-sage/10 transition-colors"
+                >
+                  Resume
+                </a>
               </motion.div>
             )}
           </AnimatePresence>
