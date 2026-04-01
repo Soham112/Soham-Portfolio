@@ -1,31 +1,57 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_ITEMS = [
-  "Working-On",
-  "Summary",
-  "Experience",
-  "Projects",
-  "Testimonials",
-  "Skills",
-  "Achievements",
-  "Publications",
-  "Certifications",
-  "Education",
-  "Contact"
+  { label: "Summary", id: "summary" },
+  { label: "Experience", id: "experience" },
+  { label: "Projects", id: "projects" },
+  { label: "Testimonials", id: "testimonials" },
+  { label: "Skills", id: "skills" },
+  { label: "Achievements", id: "achievements" },
+  { label: "Publications", id: "publications" },
+  { label: "Certifications", id: "certifications" },
+  { label: "Education", id: "education" },
+  { label: "Contact", id: "contact" },
 ];
 
 export function Navigation() {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
-    e.preventDefault();
-    const elem = document.getElementById(target);
-    if (elem) {
-      window.scrollTo({
-        top: elem.offsetTop - 80,
-        behavior: "smooth"
-      });
-    }
+  const [activeId, setActiveId] = useState("");
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+      const scrollPos = window.scrollY + 120;
+      let current = "";
+      for (const item of NAV_ITEMS) {
+        const el = document.getElementById(item.id);
+        if (el && el.offsetTop <= scrollPos) current = item.id;
+      }
+      setActiveId(current);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    if (menuOpen) document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+    setMenuOpen(false);
   };
 
   return (
@@ -33,52 +59,100 @@ export function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background shadow-sm py-4"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-background shadow-sm py-3" : "bg-background/95 py-4"
+      }`}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        <a 
-          href="#" 
+        {/* Brand */}
+        <a
+          href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-          className="font-serif font-bold text-xl tracking-wider text-charcoal"
+          className="font-serif font-bold text-xl tracking-wider text-charcoal hover:text-sage transition-colors flex-shrink-0"
         >
           SP.
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-          {NAV_ITEMS.map((item) => {
-            const id = item.toLowerCase();
-            return (
-              <a
-                key={item}
-                href={`#${id}`}
-                onClick={(e) => handleClick(e, id)}
-                className="relative text-sm font-medium hover:text-charcoal text-charcoal-light transition-none"
-              >
-                {item.replace("-", " ")}
-              </a>
-            );
-          })}
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
+          {NAV_ITEMS.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollTo(item.id)}
+              className={`relative text-sm font-medium transition-colors pb-1 ${
+                activeId === item.id
+                  ? "text-charcoal"
+                  : "text-charcoal-light hover:text-charcoal"
+              }`}
+            >
+              {item.label}
+              {activeId === item.id && (
+                <motion.div
+                  layoutId="nav-underline"
+                  className="absolute left-0 bottom-0 h-[2px] w-full bg-sage"
+                />
+              )}
+            </button>
+          ))}
         </nav>
-      </div>
-      
-      {/* Mobile Nav Scroll */}
-      <div className="md:hidden w-full overflow-x-auto no-scrollbar px-6 mt-2">
-        <nav className="flex items-center justify-start gap-6 w-max pb-2">
-          {NAV_ITEMS.map((item) => {
-            const id = item.toLowerCase();
-            return (
-              <a
-                key={item}
-                href={`#${id}`}
-                onClick={(e) => handleClick(e, id)}
-                className="relative text-sm font-medium hover:text-charcoal text-charcoal-light whitespace-nowrap transition-none"
+
+        {/* Mobile Hamburger */}
+        <div className="lg:hidden" ref={menuRef}>
+          <button
+            onClick={() => setMenuOpen((prev) => !prev)}
+            className="p-2 rounded-lg text-charcoal hover:text-sage hover:bg-warm-sand/30 transition-colors"
+            aria-label="Toggle menu"
+          >
+            <svg
+              width="22"
+              height="22"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              viewBox="0 0 24 24"
+            >
+              {menuOpen ? (
+                <>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </>
+              )}
+            </svg>
+          </button>
+
+          <AnimatePresence>
+            {menuOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+                className="absolute top-full right-4 mt-2 w-52 bg-white rounded-2xl shadow-lg border border-warm-sand/60 overflow-hidden"
               >
-                {item.replace("-", " ")}
-              </a>
-            );
-          })}
-        </nav>
+                {NAV_ITEMS.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollTo(item.id)}
+                    className={`w-full text-left px-5 py-3 text-sm font-medium border-b border-warm-sand/30 last:border-none transition-colors ${
+                      activeId === item.id
+                        ? "text-sage bg-sage/5 font-semibold"
+                        : "text-charcoal-light hover:text-charcoal hover:bg-warm-sand/20"
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </motion.header>
   );
