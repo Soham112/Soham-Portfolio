@@ -83,7 +83,7 @@ export function Navigation() {
         scrolled ? "bg-background shadow-sm py-3" : "bg-background/95 py-4"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12 flex justify-between items-center">
+      <div className="max-w-5xl mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Brand */}
         <a
           href="#"
