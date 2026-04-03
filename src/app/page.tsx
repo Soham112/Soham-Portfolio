@@ -3,6 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { Card } from "@/components/Card";
 import { ClientImage } from "@/components/ClientImage";
+import { ExpandableInsightSection } from "@/components/ExpandableInsightSection";
 import { 
   MapPin, 
   Mail, 
@@ -231,6 +232,48 @@ export default function Home() {
               <li>Architected a 4-stage production pipeline on Databricks + S3 — async web crawling via crawl4ai and Playwright, lxml-based article extraction, BERT-NER pre-filtering and LLaMA 3.3 70B contact extraction, and Bing API + Jaro-Winkler fuzzy verification — processing 120K+ articles to deliver 60K verified executive contacts at &lt;$0.01/contact.</li>
               <li>Engineered fault-tolerant daily runs using Spark parallel partitioning, Hydra config management, S3 checkpointing, and Databricks Workflow orchestration — achieving 60%+ verification precision on C-suite contacts, matching and exceeding rates previously achieved by the manual tele-research team.</li>
             </ul>
+
+            <ExpandableInsightSection 
+              title="Areas of Impact"
+              items={[
+                {
+                  heading: "1. Scalable Data Extraction Systems",
+                  description: "Built high-throughput pipelines to extract structured information from large-scale unstructured news and web sources.",
+                  bullets: [
+                    "Built scalable news and web data extraction pipelines using asynchronous crawling, Spark-based parallelization, and distributed processing",
+                    "Designed systems to transform unstructured text into reliable structured outputs for downstream use cases",
+                    "Focused on high-volume processing efficiency and pipeline scalability"
+                  ]
+                },
+                {
+                  heading: "2. LLM-Based Information Extraction",
+                  description: "Integrated LLM-driven extraction workflows into production-oriented data pipelines.",
+                  bullets: [
+                    "Integrated LLM-based extraction workflows with pre-filtering and validation layers to improve quality while controlling cost",
+                    "Designed structured extraction flows to convert raw text into usable downstream entities",
+                    "Balanced extraction quality, latency, and cost across large-scale processing"
+                  ]
+                },
+                {
+                  heading: "3. Entity Verification & Reliability",
+                  description: "Developed validation systems to improve precision and trust in extracted entities.",
+                  bullets: [
+                    "Developed entity verification pipelines using search, matching logic, and precision-focused validation strategies",
+                    "Reduced false positives through multi-step validation and quality filters",
+                    "Focused on making extracted outputs more reliable for business use"
+                  ]
+                },
+                {
+                  heading: "4. Pipeline Reliability & Performance",
+                  description: "Engineered pipelines for fault tolerance, repeatability, and efficient execution.",
+                  bullets: [
+                    "Focused on production reliability through checkpointing, fault-tolerant execution, and pipeline performance optimization",
+                    "Improved operational stability for long-running distributed workflows",
+                    "Built systems with scalability and recoverability in mind"
+                  ]
+                }
+              ]}
+            />
           </Card>
 
           <Card className="relative overflow-hidden">
@@ -253,6 +296,66 @@ export default function Home() {
               <li>Deployed models via Databricks Asset Bundles, AWS (S3, Lambda, batch inference), and MLflow model registry with scheduled retraining, anomaly detection, and drift monitoring — maintaining 95%+ uptime.</li>
               <li>Mentored a team of 5 in ML and Databricks workflows, transitioning model development fully in-house and eliminating $30K+ in annual external vendor costs.</li>
             </ul>
+
+            <ExpandableInsightSection 
+              title="Areas of Impact"
+              items={[
+                {
+                  heading: "1. Large-Scale ML Systems for Business Prediction",
+                  description: "Worked on production ML systems to predict business-level outcomes across large-scale, noisy enterprise datasets.",
+                  bullets: [
+                    "Designed multi-stage modeling pipelines (segmentation → specialized models)",
+                    "Handled high-dimensional, sparse, and imbalanced datasets at scale",
+                    "Focused on feature engineering and signal extraction as core drivers of performance"
+                  ]
+                },
+                {
+                  heading: "2. End-to-End Data Science Lifecycle",
+                  description: "Owned the full lifecycle from raw data → feature engineering → modeling → deployment.",
+                  bullets: [
+                    "Built distributed ETL pipelines using PySpark for large-scale data processing",
+                    "Performed deep EDA and hypothesis-driven feature engineering",
+                    "Tuned models using structured experimentation and validation workflows"
+                  ]
+                },
+                {
+                  heading: "3. Databricks & Lakehouse Engineering",
+                  description: "Worked extensively within the Databricks ecosystem to build scalable data systems.",
+                  bullets: [
+                    "Designed pipelines aligned with Medallion Architecture (Bronze → Silver → Gold)",
+                    "Built reusable feature pipelines using Delta Tables and Feature Store concepts",
+                    "Optimized cluster usage and execution for memory-intensive workloads using PySpark"
+                  ]
+                },
+                {
+                  heading: "4. Model Optimization & Explainability",
+                  description: "Focused on building interpretable and stable models for real-world deployment.",
+                  bullets: [
+                    "Applied feature selection, dimensionality reduction (PCA/SVD-style approaches)",
+                    "Used explainability techniques (SHAP-style methods) to validate model behavior",
+                    "Ensured outputs aligned with business decision-making"
+                  ]
+                },
+                {
+                  heading: "5. Production ML & MLOps",
+                  description: "Worked in a production-grade ML environment with strong MLOps practices.",
+                  bullets: [
+                    "Managed experiment tracking and model lifecycle using MLflow-style workflows",
+                    "Built automated pipelines for training, inference, and monitoring",
+                    "Designed systems for retraining, drift handling, and production reliability"
+                  ]
+                },
+                {
+                  heading: "6. Infrastructure-as-Code & Deployment",
+                  description: "Bridged the gap between experimentation and production systems.",
+                  bullets: [
+                    "Transitioned notebook-based workflows into production pipelines using Databricks Asset Bundles (DABs)",
+                    "Defined jobs, pipelines, and environments using YAML-based IaC workflows",
+                    "Built orchestrated, multi-stage pipelines for automated execution without manual intervention"
+                  ]
+                }
+              ]}
+            />
           </Card>
         </div>
       </SectionWrapper>
