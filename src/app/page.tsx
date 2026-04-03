@@ -628,14 +628,55 @@ export default function Home() {
         <h2 className="font-serif text-3xl text-charcoal font-bold mb-12">Certifications</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
-            "AWS Certified Machine Learning – Associate",
-            "Snowflake SnowPro Core Certification",
-            "Databricks Generative AI Fundamentals",
-            "Databricks Lakehouse Fundamentals"
+            {
+              name: "AWS Certified Machine Learning – Associate",
+              link: null
+            },
+            {
+              name: "Snowflake SnowPro Core Certification",
+              link: "https://achieve.snowflake.com/24d42be8-79cb-4f8b-99c1-3d5b3bb8eb0e#acc.IrqBAWGa"
+            },
+            {
+              name: "Databricks Academy - Machine Learning Operations",
+              link: "https://credentials.databricks.com/ef782f77-404a-483d-92d3-9773289b22cd#acc.mMdWVrgh"
+            },
+            {
+              name: "Databricks Academy - Machine Learning Model Deployment",
+              link: "https://credentials.databricks.com/4528d18d-e384-4932-8088-8cdcb90fa392#acc.MrPWn3QX"
+            },
+            {
+              name: "Databricks Academy - Data Preparation for Machine Learning",
+              link: "https://credentials.databricks.com/b3e60785-7a54-4643-8deb-9b3dbbf340b4#acc.I37ZjSDf"
+            },
+            {
+              name: "Databricks Academy - Machine Learning Model Development",
+              link: "https://credentials.databricks.com/7a9475a9-8591-43d0-a4d9-758703beefaa#acc.GaPDtTb9"
+            },
+            {
+              name: "Databricks Generative AI Fundamentals",
+              link: null
+            }
           ].map((cert, i) => (
-            <div key={i} className="bg-warm-sand/30 p-4 rounded-xl border border-warm-sand/50 flex items-center font-medium text-charcoal hover:-translate-y-0.5 transition-transform shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-sage mr-3"></span>
-              {cert}
+            <div key={i} className="group relative">
+              {cert.link ? (
+                <a 
+                  href={cert.link} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="bg-warm-sand/30 p-4 rounded-xl border border-warm-sand/50 flex items-center justify-between font-medium text-charcoal hover:-translate-y-0.5 hover:bg-sage/5 hover:border-sage/30 transition-all duration-300 shadow-sm"
+                >
+                  <div className="flex items-center">
+                    <span className="w-2 h-2 rounded-full bg-sage mr-3"></span>
+                    {cert.name}
+                  </div>
+                  <ExternalLink size={14} className="text-charcoal-light group-hover:text-sage opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                </a>
+              ) : (
+                <div className="bg-warm-sand/30 p-4 rounded-xl border border-warm-sand/50 flex items-center font-medium text-charcoal cursor-default shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-sage mr-3"></span>
+                  {cert.name}
+                </div>
+              )}
             </div>
           ))}
         </div>
